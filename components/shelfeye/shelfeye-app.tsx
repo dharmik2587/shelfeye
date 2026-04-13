@@ -202,7 +202,8 @@ function ScanOrb() {
             <ShelfScanner 
               onScanComplete={(result) => {
                 if (result.success && result.data) {
-                  sendChatMessage(`Analysis complete: Detected ${result.data.annotatedProductCount} products with ${result.data.stockStatus} status.`);
+                  const { annotatedProductCount, stockStatus } = result.data;
+                  sendChatMessage(`Analysis complete: Detected ${annotatedProductCount} products with ${stockStatus} status.`);
                 }
               }} 
             />

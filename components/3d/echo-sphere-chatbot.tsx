@@ -281,10 +281,11 @@ export function EchoSphereChatbot() {
             <ShelfScanner 
               onScanComplete={(result) => {
                 if (result.success && result.data) {
+                  const { annotatedProductCount, stockStatus } = result.data;
                   addMessage({
                     id: crypto.randomUUID(),
                     role: "assistant",
-                    content: `Scan complete! Detected ${result.data.annotatedProductCount} products with ${result.data.stockStatus} status.`,
+                    content: `Scan complete! Detected ${annotatedProductCount} products with ${stockStatus} status.`,
                     createdAt: new Date().toISOString(),
                   });
                 }

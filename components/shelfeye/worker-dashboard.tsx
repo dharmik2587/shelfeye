@@ -729,7 +729,8 @@ export function WorkerDashboard() {
                   <ShelfScanner 
                     onScanComplete={(result) => {
                       if (result.success && result.data) {
-                        setItemsScanned((prev) => prev + result.data.annotatedProductCount);
+                        const count = result.data.annotatedProductCount;
+                        setItemsScanned((prev) => prev + count);
                         setInspectionComplete(true);
                       }
                     }} 
